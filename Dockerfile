@@ -5,7 +5,7 @@ COPY . .
 RUN go build -o x-ui main.go
 
 # 第二阶段：创建最终的运行环境
-FROM debian:11-slim
+FROM debian:12-slim
 WORKDIR /root
 
 # 复制构建好的可执行文件
