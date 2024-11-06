@@ -6,6 +6,10 @@ RUN go build -o x-ui main.go
 
 # 第二阶段：创建最终的运行环境
 FROM debian:12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends -y ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 WORKDIR /root
 
 # 复制构建好的可执行文件
